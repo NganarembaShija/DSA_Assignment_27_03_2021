@@ -6,15 +6,13 @@ struct node{
     struct node *link;
 }*start;
 
-typedef struct node node;
-
 void createList(int);
 void display();
 void largeSmall();
 
 void main(){
     int size;
-    start=(node*)malloc(sizeof(node));
+    start=(struct node*)malloc(sizeof(struct node));
     printf("Enter the number of nodes: ");
     scanf("%d",&size);
     createList(size);
@@ -24,13 +22,13 @@ void main(){
 
 void createList(int size){
     int i;
-    node *traverse, *newNode;
+    struct node *traverse, *newNode;
     printf("Enter Node 1 data: ");
     scanf("%d",&start->data);
     traverse=start;
     start->link=NULL;
     for(i=2; i<=size; i++){
-        newNode=(node*)malloc(sizeof(node));
+        newNode=(struct node*)malloc(sizeof(struct node));
         printf("Enter Node %d data: ",i);
         scanf("%d",&newNode->data);
         newNode->link=NULL;
@@ -42,7 +40,7 @@ void createList(int size){
 
 
 void display(){
-    node *traverse;
+    struct node *traverse;
     int i=0;
     printf("\nNode Elements are\n");
     for(traverse=start; traverse!=NULL; traverse=traverse->link){
@@ -53,7 +51,7 @@ void display(){
 
 void largeSmall(){
     int max, min;
-    node *traverse;
+    struct node *traverse;
     max=start->data;
     min=start->data;
     //Finding the largest and smallest element
