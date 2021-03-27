@@ -6,15 +6,13 @@ struct node{
     struct node *link;
 }*start;
 
-typedef struct node node;
-
 void createList(int);
 void display();
 void removeAdd();
 
 void main(){
     int size;
-    start=(node*)malloc(sizeof(node));
+    start=(struct node*)malloc(sizeof(struct node));
     printf("Enter the number of nodes: ");
     scanf("%d",&size);
     createList(size);
@@ -27,13 +25,13 @@ void main(){
 
 void createList(int size){
     int i;
-    node *traverse, *newNode;
+    struct node *traverse, *newNode;
     printf("Enter Node 1 data: ");
     scanf("%d",&start->data);
     start->link=NULL;
     traverse=start;
     for(i=2;i<=size;i++){
-        newNode=(node*)malloc(sizeof(node));
+        newNode=(struct node*)malloc(sizeof(struct node));
         printf("Enter Node %d data: ",i);
         scanf("%d",&newNode->data);
         newNode->link=NULL;
@@ -43,14 +41,14 @@ void createList(int size){
 }
     void display(){
         int i=0;
-        node *traverse;
+        struct node *traverse;
         printf("\n");
         for(traverse=start; traverse!=NULL; traverse=traverse->link)
             printf("Node %d = %d\n",++i,traverse->data);
         }
 
     void removeAdd(){
-        node *end=start, *newStart;
+        struct node *end=start, *newStart;
         while(end->link!=NULL){
             end=end->link;
         }
