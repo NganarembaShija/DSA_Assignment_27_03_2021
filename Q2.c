@@ -67,7 +67,7 @@ void swap()
         end = end->link;
     }
 
-    //Swapping the first and last node
+    //Swapping the first and last element
         swap=start->data;
         start->data=end->data;
         end->data=swap;
